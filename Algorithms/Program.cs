@@ -73,6 +73,7 @@ namespace Algorithms
             // create the right partition, contains every element greater than the value of pivot
             int[] right = Array.FindAll(args, i => i > pivot);
             // return a new array, made up of recursively calling the quick sort with the left partition, followed by the pivot, followed by the quick sort of the right partition
+            // not sure if this will work.  Have not tested this.
             int[] final = Quicksort(left);
             int[] final_two = Quicksort(right);
             int[] recursive_final = new int[final.Length + final_two.Length + 1];
