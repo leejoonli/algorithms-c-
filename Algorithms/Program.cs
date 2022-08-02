@@ -8,29 +8,35 @@ namespace Algorithms
 {
     internal class Sorting
     {
+        static void Main(string[] args)
+        {
+            int[] temp = Bubblesort(new int[] { 9,8,7,6,5,4,3,2,1,0});
+            for (int i = 0; i < temp.Length; i++)
+            {
+                Console.WriteLine(temp[i]);
+            }
+        }
         static int[] Bubblesort(int[] args)
         {
-            // initialize swapped as true
-            bool init = true;
+            int n = args.Length;
+            bool swapped;
 
-            // while loop
-            while(init)
+            for(int i = 0; i < n; i++)
             {
-                // swapped becomes false (innocent until proven guilty) because you haven't made a swap yet
-                init = false;
-                // iterate across data
-                for(int i = 0; i < args.Length; i++)
+                swapped = false;
+                for(int j = 0; j < n - i - 1; j++)
                 {
-                    // conditional for if numbers need to be swapped
-                    if (args[i] > args[i+1])
+                    if (args[j] > args[j + 1])
                     {
-                        // swap the items
-                        // need a temporary variable to store values for swapping
-                        int temp = args[i];
-                        args[i] = args[i + 1];
-                        args[i + 1] = temp;
-                        init = true;
+                        int temp = args[j];
+                        args[j] = args[j + 1];
+                        args[j + 1] = temp;
+                        swapped = true;
                     }
+                }
+                if(swapped == false)
+                {
+                    break;
                 }
             }
             return args;
