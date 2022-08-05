@@ -20,14 +20,14 @@ namespace Algorithms
 
         }
 
-        public void AppendNode(int data)
+        public Node AppendNode(int data)
         {
             Node temp = new Node(data);
 
             if(this.head == null)
             {
                 this.head = temp;
-                return;
+                return this.head;
             }
 
             Node walker = this.head;
@@ -38,7 +38,22 @@ namespace Algorithms
             }
 
             walker.next = temp;
-            return;
+            return walker.next;
+        }
+
+        public Node PrependNode(int data)
+        {
+            Node temp = new Node(data);
+
+            if(this.head == null)
+            {
+                this.head = temp;
+                return this.head;
+            }
+
+            temp.next = this.head;
+            this.head = temp;
+            return this.head;
         }
     }
 
