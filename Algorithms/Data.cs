@@ -10,14 +10,20 @@ namespace Algorithms
     {
         public Node head { get; set; }
 
-        public LinkedList(Node head)
+        public LinkedList()
         {
             this.head = null;
         }
 
         static void Main(string[] args)
         {
-
+            //LinkedList temp = new LinkedList();
+            //temp.AppendNode(1);
+            //Console.WriteLine(temp.head.data);
+            //temp.AppendNode(2);
+            //Console.WriteLine(temp.head.next.data);
+            //Node removed_node = temp.Pop();
+            //Console.WriteLine(removed_node.data);
         }
 
         public Node AppendNode(int data)
