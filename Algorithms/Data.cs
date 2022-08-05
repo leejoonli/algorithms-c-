@@ -55,6 +55,27 @@ namespace Algorithms
             this.head = temp;
             return this.head;
         }
+
+        public Node Pop()
+        {
+            if(this.head == null)
+            {
+                return null;
+            }
+            if(this.head.next == null)
+            {
+                return this.head;
+            }
+
+            Node walker = this.head;
+            while(walker.next.next != null)
+            {
+                walker = walker.next;
+            }
+            Node temp = walker.next;
+            walker.next = null;
+            return temp;
+        }
     }
 
     internal class Node
