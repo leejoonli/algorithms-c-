@@ -10,7 +10,7 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            int[] temp = Bubblesort(new int[] { 9,8,7,6,5,4,3,2,1,0});
+            int[] temp = Quicksort(new int[] { 9,8,7,6,5,4,3,2,1,0});
             for (int i = 0; i < temp.Length; i++)
             {
                 Console.WriteLine(temp[i]);
