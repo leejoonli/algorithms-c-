@@ -17,8 +17,9 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            //LinkedList temp = new LinkedList();
-            //temp.AppendNode(1);
+            LinkedList temp = new LinkedList();
+            temp.AppendNode(1);
+            Console.WriteLine(temp.Shift().data);
             //Console.WriteLine(temp.head.data);
             //temp.AppendNode(2);
             //Console.WriteLine(temp.head.next.data);
@@ -80,6 +81,45 @@ namespace Algorithms
             }
             Node temp = walker.next;
             walker.next = null;
+            return temp;
+        }
+
+        public Node Shift()
+        {
+            if(this.head == null)
+            {
+                return null;
+            }
+            Node temp = this.head;
+            this.head = temp.next;
+            return temp;
+        }
+
+        public Node Insert(int idx, int data)
+        {
+            if(this.head == null)
+            {
+                return null;
+            }
+            Node temp = new Node(data);
+            if(idx == 0)
+            {
+                Node temp_two = this.head;
+                temp_two.next = temp;
+                this.head = temp_two;
+                return this.head;
+            }
+            Node walker = this.head;
+            int next_node_idx = 1;
+
+            while(walker.next != null && next_node_idx < idx)
+            {
+                walker = walker.next;
+                next_node_idx++;
+            }
+            Node walker_tracker = walker.next;
+            temp.next = walker_tracker;
+            walker.next = temp;
             return temp;
         }
     }
