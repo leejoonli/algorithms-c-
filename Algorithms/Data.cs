@@ -148,6 +148,26 @@ namespace Algorithms
             walker.next = temp_two.next;
             return temp_two;
         }
+
+        public int Search(int data)
+        {
+            if(this.head == null)
+            {
+                return -1;
+            }
+            Node walker = this.head;
+            int index = 0;
+            while(walker != null)
+            {
+                if(walker.data == data)
+                {
+                    return index;
+                }
+                walker = walker.next;
+                index++;
+            }
+            return -1;
+        }
     }
 
     internal class Node
