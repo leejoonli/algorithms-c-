@@ -20,13 +20,7 @@ namespace Algorithms
             LinkedList temp = new LinkedList();
             temp.AppendNode(1);
             temp.AppendNode(2);
-            temp.Insert(1, 3);
-            Console.WriteLine(temp.head.next.data);
-            //Console.WriteLine(temp.head.data);
-            //temp.AppendNode(2);
-            //Console.WriteLine(temp.head.next.data);
-            //Node removed_node = temp.Pop();
-            //Console.WriteLine(removed_node.data);
+            Console.WriteLine(temp.Search(3));
         }
 
         public Node AppendNode(int data)
@@ -167,6 +161,43 @@ namespace Algorithms
                 index++;
             }
             return -1;
+        }
+        public void Sort()
+        {
+            if(this.head == null)
+            {
+                return;
+            }
+            bool swap = true;
+            while(swap)
+            {
+                swap = false;
+                Node walker = this.head;
+                Node previous;
+                while(walker != null && walker.next != null)
+                {
+                    swap = true;
+                    if(walker == this.head)
+                    {
+                        Node temp_next = this.head;
+                        Node temp_head = this.head.next;
+                        temp_next.next = temp_head.next;
+                        temp_head.next = temp_next;
+                        this.head = temp_head;
+                    }
+                    else
+                    {
+                        Node temp_next = walker;
+                        Node temp_cur = walker.next;
+                        temp_next.next = temp_cur.next;
+                        temp_cur.next = temp_next;
+                        // running into an error and not sure how to proceed.  Will comment out for now.
+                        //previous.next = temp_cur;
+                    }
+                    previous = walker;
+                    walker = walker.next;
+                }
+            }
         }
     }
 
