@@ -19,7 +19,9 @@ namespace Algorithms
         {
             LinkedList temp = new LinkedList();
             temp.AppendNode(1);
-            Console.WriteLine(temp.Shift().data);
+            temp.AppendNode(2);
+            temp.Insert(1, 3);
+            Console.WriteLine(temp.head.next.data);
             //Console.WriteLine(temp.head.data);
             //temp.AppendNode(2);
             //Console.WriteLine(temp.head.next.data);
@@ -121,6 +123,30 @@ namespace Algorithms
             temp.next = walker_tracker;
             walker.next = temp;
             return temp;
+        }
+
+        public Node Remove(int idx)
+        {
+            if(this.head == null)
+            {
+                return null;
+            }
+            if(idx == 0)
+            {
+                Node temp = this.head;
+                this.head = temp.next;
+                return temp;
+            }
+            Node walker = this.head;
+            int index = 1;
+            while(walker.next != null && index < idx)
+            {
+                walker = walker.next;
+                index++;
+            }
+            Node temp_two = walker.next;
+            walker.next = temp_two.next;
+            return temp_two;
         }
     }
 
